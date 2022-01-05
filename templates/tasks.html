@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% include 'sidebar.html' %}
+<div id="tasks">
+    <h1>Tasks</h1>
+        {% for task in tasks %}
+        <ul>
+          {% if task.priority == 'high' %}
+           <li class="high"></li>
+          {% elif task.priority == 'moderate' %}
+            <li class="moderate"></li>
+          {% else %}
+             <li class="low"></li>
+          {% endif %}
+            <li>{{ task.title }} </li>
+            <li>{{ task.item_type }}</li> 
+            <li>{{ task.status }}</li>
+            <li>{{ task.timestamp.strftime('%d/%m/%Y')}}</li>
+            <li><input type="checkbox" id="checkbox">&nbsp;&nbsp;Mark as complete</li>
+            <li><a href="{{ url_for('remove_task', id=task.id)}}">remove</a></li>
+        </ul> 
+       {% endfor %}
+</div>
+{% endblock %}

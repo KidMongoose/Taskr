@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://use.typekit.net/axz6kcf.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+        <link href="{{ url_for('static', filename='css/app.css')}}" rel="stylesheet"/>
+        <script src="https://code.jquery.com/jquery-3.6.0.js"   integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="   crossorigin="anonymous"></script>  
+        <script src="{{ url_for('static', filename='js/app.js')}}"></script>
+    </head>
+    <body>
+     <main> 
+        <div class="content">
+          <div id="login-menu">
+            <ul>
+              {% if not current_user.is_anonymous %}
+              <li><a href="{{ url_for('logout') }}">logout</a></li>
+              {% endif %}
+            </ul>
+          </div>
+        {% block content %}{% endblock %}
+        </div>
+      </main>
+    </body>
+</html>

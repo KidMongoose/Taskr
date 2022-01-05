@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% include 'sidebar.html' %}
+<div id="dashboard">
+   <h1>Add contact</h1>
+  <form method="post" action="" novalidate>
+      {{ form.hidden_tag() }}
+      <p>
+        {{ form.name(placeholder='Name')}}
+        {% for error in form.name.errors %}
+          <span>{{ error }}</span>
+        {% endfor %}  
+      </p> 
+      <p>
+        {{ form.telephone(placeholder='Telephone')}}
+        {% for error in form.telephone.errors %}
+          <span>{{ error }}</span>
+        {% endfor %}  
+      </p> 
+      <p>
+        {{ form.email(placeholder='E-mail')}}
+        {% for error in form.email.errors %}
+          <span>{{ error }}</span>
+        {% endfor %}  
+      </p> 
+      <p>
+        {{ form.category(placeholder='Category')}}
+        {% for error in form.category.errors %}
+          <span>{{ error }}</span>
+        {% endfor %}  
+      </p> 
+      <p>
+        {{ form.company(placeholder='Company')}}
+        {% for error in form.company.errors %}
+          <span>{{ error }}</span>
+        {% endfor %}  
+      </p> 
+      <p>
+        {{ form.contact_type(placeholder='Contact Type')}}
+        {% for error in form.contact_type.errors %}
+          <span>{{ error }}</span>
+        {% endfor %}  
+      </p> 
+      <p>
+        {{ form.title(placeholder='Title')}}
+        {% for error in form.title.errors %}
+          <span>{{ error }}</span>
+        {% endfor %}  
+      </p> 
+      <p>
+        {{ form.notes(placeholder='Notes', class='txtFld')}}
+        {% for error in form.notes.errors %}
+          <span>{{ error }}</span>
+        {% endfor %}  
+      </p> 
+      <p>{{ form.save() }}</p> 
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% include 'sidebar.html' %}
+<div id="task">
+  <h1>Add task</h1>  
+  <form method="post" action=""  novalidate>
+      {{ form.hidden_tag() }}
+      <p>
+         {{ form.title(placeholder='Title') }} 
+         {% for error in form.title.errors %}
+           <span>{{ error }}</span>
+         {% endfor %}
+      </p>
+      <p>
+        {{ form.item_type(placeholder='Item Type') }}
+        {% for error in form.item_type.errors %}
+          <span>{{ error }}</span>  
+        {% endfor %}  
+      </p>
+      <p>
+        {{ form.priority(placeholder='Priority') }}
+        {% for error in form.priority.errors %}
+          <span>{{ error }}</span>  
+      {% endfor %}     
+      </p>
+      <p>
+        {{ form.status(placeholder='Status') }}
+        {% for error in form.status.errors %}
+          <span>{{ error }}</span>  
+      {% endfor %}     
+      </p>
+      <p>
+        {{ form.category(placeholder='Category') }}
+        {% for error in form.category.errors %}
+          <span>{{ error }}</span>  
+      {% endfor %}     
+      </p>
+      <p>
+        {{ form.task_note(placeholder='Task Note', class="txtFld") }}
+        {% for error in form.task_note.errors %}
+          <span>{{ error }}</span>  
+      {% endfor %}     
+      </p>
+      <p>{{ form.save() }}</p>
+  </form>
+</div>
+{% endblock %}

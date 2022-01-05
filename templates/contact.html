@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% include 'sidebar.html' %}
+{% for c in contact %}
+<div id="taskr-contact">
+   <div id="taskr-contact-heading">
+       <div>
+           <a id="upload-image">
+               <img src="/static/images/{{ c.image }}" alt="image" id="contact-data-image" />
+            </a>
+            <br>
+            <p id="upload-status">Photo added</p>
+           <div id="upload">
+                <form method="post" enctype="multipart/form-data">
+                 <input type="file" id="upload-file">
+                 <form>
+            </div>
+           <span id="contact-data-name">{{ c.name }}</span>
+           <span id="contact-data-id" hidden>{{ c.id }}</span>
+        </div>
+   </div>
+   <div id="taskr-contact-body">
+      <ul>
+         <li><b>Telephone</b><span id="contact-data-telephone">{{ c.telephone }}</span></li> 
+         <li><b>E-mail</b><span id="contact-data-email">{{ c.email }}</span></li> 
+         <li><b>Category</b><span id="contact-data-category">{{ c.category }}</span></li> 
+         <li><b>Company</b><span id="contact-data-company"></span>{{ c.company }}</span></li> 
+         <li><b>Contact type</b><span id="data-contact-type">{{ c.contact_type }}</span></li> 
+         <li><b>Title</b><span id="contact-data-title">{{ c.title }}</span></li> 
+         <li><b>Notes</b><span id="contact-data-notes">{{ c.notes }}</span></li>
+      </ul>
+      <form method="post">
+        <button id="task-contact-edit">Edit</button>
+        <button id="task-contact-submit" type="submit">Save</button>
+    </form>
+   </div>
+</div>
+{% endfor %}
+{% endblock %}
